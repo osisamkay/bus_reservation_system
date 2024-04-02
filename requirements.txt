@@ -1,0 +1,11 @@
+fastapi
+uvicorn 
+sqlalchemy 
+databases 
+pyjwt 
+passlib[bcrypt] 
+fastapi-csrf-protect
+fastapi-limiter
+alembic
+aiosqlite
+python-multipart
