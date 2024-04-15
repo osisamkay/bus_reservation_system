@@ -11,9 +11,10 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(String(36), primary_key=True, default=str(
+    id = Column(String(36), primary_key=True, default=lambda: str(
         uuid.uuid4()), unique=True, index=True)
     username = Column(String, unique=True, index=True)
+    email = Column(String, unique=True, index=True)
     password_hash = Column(String)
 
     # Define relationship with Reservation model
@@ -64,10 +65,11 @@ class Price(Base):
 class Route(Base):
     __tablename__ = "routes"
 
-    id = Column(String(36), primary_key=True, default=str(
+    id = Column(String(36), primary_key=True, default=lambda: str(
         uuid.uuid4()), unique=True, index=True)
     source = Column(String)
     destination = Column(String)
 
     # Relationship with Price table
     prices = relationship("Price", back_populates="route")
+1
